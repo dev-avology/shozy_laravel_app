@@ -52,7 +52,7 @@
 
 /* Logo Styles */
 .sidebar-logo {
-    height: 40px;
+    height: 80px;
     width: auto;
     object-fit: contain;
     border-radius: 8px;
@@ -106,12 +106,23 @@ body {
     background: var(--sidebar-bg);
     border-right: 1px solid var(--border-color);
     box-shadow: 2px 0 10px var(--shadow-light);
+    height: 100vh;
+    overflow-y: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    z-index: 1000;
 }
 
 .sidebar-header {
     background: linear-gradient(135deg, var(--header-bg) 0%, #F0EDE8 100%);
     border-bottom: 1px solid var(--border-color);
-    padding: 1.5rem 1rem;
+    padding: 2.5rem 1rem;
+    min-height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .sidebar-brand {
@@ -119,6 +130,13 @@ body {
     font-weight: 700;
     text-decoration: none;
     font-size: 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sidebar-nav {
+    padding-top: 1rem;
 }
 
 .sidebar-nav .nav-link {
@@ -491,6 +509,15 @@ body {
     
     .sidebar.show {
         transform: translateX(0);
+    }
+    
+    .sidebar-header {
+        padding: 2rem 1rem;
+        min-height: 100px;
+    }
+    
+    .sidebar-logo {
+        height: 65px;
     }
     
     .card {

@@ -7,7 +7,7 @@
     <div class="sidebar-header">
         <a href="{{ route('admin.dashboard') }}" class="sidebar-brand">
             <img src="{{ asset('assets/logo.png') }}" alt="Shozy App Logo" class="sidebar-logo me-2">
-            <span>Shozy App</span>
+            {{-- <span>Shozy App</span> --}}
         </a>
     </div>
 

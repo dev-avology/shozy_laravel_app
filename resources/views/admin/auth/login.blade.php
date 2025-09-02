@@ -75,7 +75,7 @@
         .login-header {
             background: linear-gradient(135deg, var(--header-bg) 0%, #F0EDE8 100%);
             color: var(--dark-color);
-            padding: 35px 25px;
+            padding: 50px 25px;
             text-align: center;
             position: relative;
             overflow: hidden;
@@ -102,15 +102,17 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin-bottom: 8px;
+            /* margin-bottom: 20px; */
+            margin-top: -56px;
+            justify-content: center;
         }
 
         .brand-logo img {
-            height: 60px;
+            height: 122px;
             width: auto;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
             border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            /* box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); */
             transition: transform 0.3s ease;
         }
 
@@ -119,7 +121,7 @@
         }
 
         .brand-logo span {
-            font-size: 2.2rem;
+            font-size: 2.4rem;
             font-weight: 700;
             color: var(--primary-color);
             text-shadow: 0 2px 4px rgba(255, 127, 39, 0.2);
@@ -132,7 +134,7 @@
         }
 
         .login-body {
-            padding: 35px 25px;
+            padding: 40px 25px;
             background: var(--content-bg);
         }
 
@@ -169,7 +171,7 @@
         .input-icon {
             position: absolute;
             left: 18px;
-            top: 50%;
+            top: 71%;
             transform: translateY(-50%);
             color: var(--secondary-color);
             font-size: 1.1rem;
@@ -333,16 +335,16 @@
             }
             
             .login-header {
-                padding: 30px 20px;
+                padding: 45px 20px;
             }
             
             .login-body {
-                padding: 30px 20px;
+                padding: 35px 20px;
             }
             
             .brand-logo img {
-                height: 50px;
-                margin-bottom: 8px;
+                height: 80px;
+                margin-bottom: 12px;
             }
             
             .brand-logo span {
@@ -433,7 +435,7 @@
             <div class="login-header">
                 <div class="brand-logo">
                     <img src="{{ asset('assets/logo.png') }}" alt="Shozy App Logo" class="login-logo me-2">
-                    <span>Shozy App</span>
+                    {{-- <span>Shozy App</span> --}}
                 </div>
                 <div class="brand-subtitle">Admin Panel</div>
             </div>
