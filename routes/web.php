@@ -52,6 +52,7 @@ Route::prefix('admin')->group(function () {
         Route::post('/products/bulk-action', [ProductController::class, 'bulkAction'])->name('admin.products.bulk-action');
         Route::get('/products/export', [ProductController::class, 'export'])->name('admin.products.export');
         Route::get('/vendors/{vendor}/products', [ProductController::class, 'vendorProducts'])->name('admin.products.vendor-products');
+        Route::get('/vendors/{vendor}/products/{product}', [ProductController::class, 'vendorProductDetails'])->name('admin.products.vendor-product-details');
         
         // Category Management
         Route::resource('categories', CategoryController::class, ['as' => 'admin']);

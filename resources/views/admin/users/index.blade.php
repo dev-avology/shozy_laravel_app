@@ -113,6 +113,7 @@
                                         <th>User</th>
                                         <th>Role</th>
                                         <th>Phone</th>
+                                        <th>Products</th>
                                         <th>Status</th>
                                         <th>Registered</th>
                                         <th>Actions</th>
@@ -140,6 +141,28 @@
                                                 @endif
                                             </td>
                                             <td>{{ $user->phone }}</td>
+                                            <td>
+                                                {{-- @if($user->role_id == 2 || ($user->roles && $user->roles->contains('name', 'Vendor'))) --}}
+                                                    <div class="vendor-products-section">
+                                                        <div class="d-flex align-items-center gap-2 mb-1">
+                                                            <span class="badge bg-info">8 products</span>
+                                                            <span class="badge bg-success">6 active</span>
+                                                        </div>
+                                                        <div class="d-flex gap-1">
+                                                            <a href="{{ route('admin.products.vendor-products', $user) }}" 
+                                                               class="btn btn-sm btn-primary">
+                                                                <i class="fas fa-box me-1"></i>Products
+                                                            </a>
+                                                            {{-- <a href="{{ route('admin.users.show', $user) }}" 
+                                                               class="btn btn-sm btn-outline-secondary">
+                                                                <i class="fas fa-user me-1"></i>Details
+                                                            </a> --}}
+                                                        </div>
+                                                    </div>
+                                                {{-- @else
+                                                    <span class="text-muted">-</span>
+                                                @endif --}}
+                                            </td>
                                             <td>
                                                 @if($user->is_active)
                                                     <span class="badge bg-success">Active</span>
@@ -256,6 +279,29 @@
 
     .alert {
         border-radius: 0.5rem;
+    }
+
+    .vendor-products-section {
+        min-width: 140px;
+    }
+
+    .vendor-products-section .btn {
+        font-size: 0.75rem;
+        padding: 0.25rem 0.5rem;
+        border-radius: 0.375rem;
+    }
+
+    .vendor-products-section .badge {
+        font-size: 0.7rem;
+        padding: 0.25rem 0.5rem;
+    }
+
+    .btn-group .btn {
+        margin-right: 0.25rem;
+    }
+
+    .btn-group .btn:last-child {
+        margin-right: 0;
     }
 </style>
 @endpush

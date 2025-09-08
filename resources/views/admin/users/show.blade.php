@@ -14,14 +14,22 @@
                             <i class="fas fa-user me-2"></i>
                             Vendor Information
                         </h5>
-                        <div>
+                        <div class="d-flex gap-2">
+                            @if($user->role_id == 2 || ($user->roles && $user->roles->contains('name', 'Vendor')))
+                                @if(($user->products_count ?? 0) > 0)
+                                    <a href="{{ route('admin.products.vendor-products', $user) }}" class="btn btn-primary">
+                                        <i class="fas fa-box me-2"></i>
+                                        View Products ({{ $user->products_count ?? 0 }})
+                                    </a>
+                                @endif
+                            @endif
                             <a href="{{ route('admin.users.edit', $user) }}" class="btn btn-warning">
                                 <i class="fas fa-edit me-2"></i>
                                 Edit Vendor
                             </a>
                             <a href="{{ route('admin.users.index') }}" class="btn btn-secondary">
                                 <i class="fas fa-arrow-left me-2"></i>
-                                Back to Vendor
+                                Back to Vendors
                             </a>
                         </div>
                     </div>
@@ -110,6 +118,25 @@
                                     </div>
                                     <h5 class="card-title">{{ $user->name }}</h5>
                                     <p class="text-muted mb-3">{{ $user->email }}</p>
+                                    
+                                    <!-- Products Section for Vendors -->
+                                    @if($user->role_id == 2 || ($user->roles && $user->roles->contains('name', 'Vendor')))
+                                    <div class="vendor-products-section mb-3">
+                                        <div class="d-flex justify-content-between align-items-center mb-2">
+                                            <span class="fw-bold">Products:</span>
+                                            <span class="badge bg-info">{{ $user->products_count ?? 0 }} items</span>
+                                        </div>
+                                        @if(($user->products_count ?? 0) > 0)
+                                            <a href="{{ route('admin.products.vendor-products', $user) }}" 
+                                               class="btn btn-primary btn-sm w-100">
+                                                <i class="fas fa-box me-2"></i>View All Products
+                                            </a>
+                                        @else
+                                            <span class="text-muted small">No products added yet</span>
+                                        @endif
+                                    </div>
+                                    <hr>
+                                    @endif
                                     
                                     <div class="d-grid gap-2">
                                         <form action="{{ route('admin.users.toggle-status', $user) }}" method="POST">

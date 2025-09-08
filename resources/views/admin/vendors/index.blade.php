@@ -75,15 +75,17 @@
                             </td>
                             <td>
                                 <div class="products-info">
-                                    <span class="badge bg-info">{{ $vendor->products_count }} products</span>
-                                    @if($vendor->products_count > 0)
-                                        <br>
-                                        <small class="text-muted">
-                                            <a href="{{ route('admin.vendors.products', $vendor) }}" class="text-decoration-none">
-                                                View Products
+                                    <div class="d-flex align-items-center gap-2 mb-1">
+                                        <span class="badge bg-info">{{ $vendor->products_count }} products</span>
+                                        @if($vendor->products_count > 0)
+                                            <a href="{{ route('admin.products.vendor-products', $vendor) }}" 
+                                               class="btn btn-sm btn-outline-primary">
+                                                <i class="fas fa-eye me-1"></i>View Products
                                             </a>
-                                        </small>
-                                    @endif
+                                        @else
+                                            <span class="text-muted small">No products yet</span>
+                                        @endif
+                                    </div>
                                 </div>
                             </td>
                             <td>

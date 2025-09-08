@@ -392,6 +392,132 @@ class ProductController extends Controller
         return view('admin.products.vendor-products', compact('vendor', 'products'));
     }
 
+    public function vendorProductDetails($vendorId, $productId)
+    {
+        // Placeholder vendor data
+        $vendor = (object) [
+            'id' => $vendorId,
+            'name' => 'John Doe',
+            'company' => 'Doe Sports & Footwear',
+            'email' => 'john.doe@example.com',
+            'phone' => '+1 (555) 123-4567',
+            'location' => 'New York, NY',
+            'avatar' => 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&h=80&fit=crop&crop=face',
+            'total_products' => 8,
+            'rating' => 4.8,
+            'years_active' => 3,
+        ];
+
+        // Placeholder product data for vendor product details
+        $product = (object) [
+            'id' => $productId,
+            'name' => 'Nike Air Max 270 Running Shoes',
+            'description' => 'The Nike Air Max 270 delivers visible cushioning under every step. The design draws inspiration from Air Max icons, showcasing Nike\'s greatest innovation with its large window and fresh array of colors. The Max Air unit provides lightweight cushioning for all-day comfort, while the mesh upper offers breathability and support.',
+            'price' => 149.99,
+            'status' => 'active',
+            'is_featured' => true,
+            'has_3d_model' => true,
+            'condition' => 'new',
+            'quantity' => 25,
+            'brand' => 'Nike',
+            'size' => 'US 9.5',
+            'material' => 'Mesh, Synthetic, Rubber',
+            'color' => 'Black/White',
+            'weight' => '12.5 oz (354g)',
+            'heel_height' => '32mm',
+            'forefoot_height' => '22mm',
+            'drop' => '10mm',
+            'waterproof' => 'No',
+            'warranty' => '2 years',
+            'sku' => 'NAM270',
+            'vendor' => $vendor,
+            'category' => (object) ['name' => 'Shoes'],
+            'images' => [
+                (object) [
+                    'id' => 1,
+                    'url' => 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=300&h=300&fit=crop',
+                    'type' => 'image',
+                    'is_primary' => true,
+                    'alt_text' => 'Front View',
+                ],
+                (object) [
+                    'id' => 2,
+                    'url' => 'https://images.unsplash.com/photo-1549298916-b41d501d3772?w=300&h=300&fit=crop',
+                    'type' => 'image',
+                    'is_primary' => false,
+                    'alt_text' => 'Side View',
+                ],
+                (object) [
+                    'id' => 3,
+                    'url' => 'https://images.unsplash.com/photo-1560769629-975ec94e6a86?w=300&h=300&fit=crop',
+                    'type' => 'image',
+                    'is_primary' => false,
+                    'alt_text' => 'Back View',
+                ],
+                (object) [
+                    'id' => 4,
+                    'url' => 'https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=300&h=300&fit=crop',
+                    'type' => 'image',
+                    'is_primary' => false,
+                    'alt_text' => 'Top View',
+                ],
+                (object) [
+                    'id' => 5,
+                    'url' => 'https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?w=300&h=300&fit=crop',
+                    'type' => 'image',
+                    'is_primary' => false,
+                    'alt_text' => 'Bottom View',
+                ],
+                (object) [
+                    'id' => 6,
+                    'url' => 'https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=300&h=300&fit=crop',
+                    'type' => 'image',
+                    'is_primary' => false,
+                    'alt_text' => 'Sole Detail',
+                ],
+                (object) [
+                    'id' => 7,
+                    'url' => 'https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?w=300&h=300&fit=crop',
+                    'type' => 'image',
+                    'is_primary' => false,
+                    'alt_text' => 'Logo Detail',
+                ],
+                (object) [
+                    'id' => 8,
+                    'url' => 'https://images.unsplash.com/photo-1552346154-21d32810aba3?w=300&h=300&fit=crop',
+                    'type' => 'image',
+                    'is_primary' => false,
+                    'alt_text' => 'Material Detail',
+                ],
+            ],
+            'specifications' => [
+                'Weight' => '12.5 oz (354g)',
+                'Heel Height' => '32mm',
+                'Forefoot Height' => '22mm',
+                'Drop' => '10mm',
+                'Upper Material' => 'Mesh and Synthetic',
+                'Midsole' => 'Max Air Unit',
+                'Outsole' => 'Rubber',
+            ],
+            'features' => [
+                'Full-length Max Air unit for maximum cushioning',
+                'Mesh upper for breathability and support',
+                'Rubber outsole for durability and traction',
+                'Lightweight design for all-day comfort',
+                'Modern silhouette with classic Air Max DNA',
+                'Available in multiple colorways',
+            ],
+            'tags' => ['Running', 'Athletic', 'Comfortable', 'Nike', 'Air Max', 'Casual'],
+            'meta_title' => 'Nike Air Max 270 Running Shoes - Premium Athletic Footwear',
+            'meta_description' => 'Shop Nike Air Max 270 running shoes with full-length Max Air cushioning. Lightweight, breathable design perfect for running and casual wear.',
+            'model_url' => 'https://example.com/shoe.glb',
+            'created_at' => now(),
+            'updated_at' => now(),
+        ];
+
+        return view('admin.products.vendor-product-details', compact('vendor', 'product'));
+    }
+
     public function export(Request $request)
     {
         // For now, just redirect with success message
